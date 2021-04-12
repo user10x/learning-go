@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hn-app
+  name: hn-app
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: hn-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hn-app
+    spec:
+      containers:
+      - image: gcr.io/test-nchawla-proj/hn:latest
+        imagePullPolicy: Always
+        name: hn
+        ports:
+        - containerPort: 4000
+          protocol: TCP

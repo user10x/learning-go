@@ -5,10 +5,9 @@ FROM golang:1.16
 RUN mkdir /app
 WORKDIR /app
 COPY . ./
-#RUN go build -o hnc main.go
-RUN go run main.go
+RUN go build -o hnc main.go
 
-# Expose the application on port 8081
+# Expose the application on port 4000
 EXPOSE 4000
 
 # Set the entry point of the container

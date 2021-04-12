@@ -1,6 +1,7 @@
 package main
 
 import (
+	"HackerNewsClone/hn"
 	"errors"
 	"flag"
 	"fmt"
@@ -12,8 +13,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
-	"HackerNewsClone/hn"
 )
 
 func main() {

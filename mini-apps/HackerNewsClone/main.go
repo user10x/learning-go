@@ -24,8 +24,10 @@ func main() {
 
 	tpl := template.Must(template.ParseFiles("./index.gohtml"))
 
+	log.Println("")
+
 	http.HandleFunc("/", handler(numStories, tpl))
-	log.Println("serving / handler")
+	log.Printf("serving localhost:%d/ handler, top %d stories\n", port, numStories)
 
 	// Start the server
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))

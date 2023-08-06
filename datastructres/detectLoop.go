@@ -43,19 +43,24 @@ func (l *LinkedList) traverLinkedList() {
 func detectLoop(l *LinkedList) bool {
 	slowNode := l.head
 	fastNode := l.head.next
-	for slowNode != nil {
+	for slowNode != nil && fastNode != nil {
 		if slowNode.data == fastNode.data {
 			fmt.Println("cycle at ", slowNode.data)
 			return true
 		}
+		if fastNode.next == nil {
+			return false
+		}
 		slowNode = slowNode.next
-		fastNode = l.head.next
+		fastNode = fastNode.next.next
 	}
 	return false
 }
+
 func main() {
 
 	l := NewLinkedList()
+	l.addToFrontLinkedList(NewNode(4))
 	l.addToFrontLinkedList(NewNode(3))
 	l.addToFrontLinkedList(NewNode(2))
 	l.addToFrontLinkedList(NewNode(1))

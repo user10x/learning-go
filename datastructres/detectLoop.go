@@ -65,6 +65,7 @@ func main() {
 	l.addToFrontLinkedList(NewNode(2))
 	l.addToFrontLinkedList(NewNode(1))
 	l.traverLinkedList()
+	l.head.next = l.head
 
 	fmt.Println(detectLoop(l))
 

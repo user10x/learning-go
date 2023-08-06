@@ -11,7 +11,7 @@ import (
 
 var b1 = "seven"
 
-// available to other packages/publicly using Caps
+// User available to other packages/publicly using Caps
 type User struct {
 	FirstName   string
 	LastName    string
@@ -26,7 +26,7 @@ func (m *User) printFirstName() string {
 }
 
 type Animal interface {
-	//signature list of functions every type of animal must have
+	// signature list of functions every type of animal must have
 	Says() string
 	NumberofLegs() int
 }
@@ -248,6 +248,7 @@ func (d Dog) NumberofLegs() int {
 
 func PrintInfo(a Animal) {
 	log.Println(a.Says())
+	log.Println(a.NumberofLegs())
 }
 
 func calcluateValue(intChan chan int) {
